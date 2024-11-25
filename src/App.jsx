@@ -2,6 +2,7 @@ import { initialColors } from "./lib/colors";
 import Color from "./Components/Color/Color";
 import "./App.css";
 import ColorForm from "./Components/ColorForm";
+// import ColorInput from "./Components/ColorInput";
 
 function App() {
   return (
