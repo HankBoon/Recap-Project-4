@@ -7,7 +7,18 @@ export default function DeleteButton({ onDeleteColor, colorToDelete }) {
   return (
     <div className="delete-button-container">
       {!buttonVisible ? (
-        <button onClick={() => setButtonVisible(!buttonVisible)}>DELETE</button>
+        <>
+          <button onClick={() => setButtonVisible(!buttonVisible)}>
+            DELETE
+          </button>
+          <button
+            onClick={() => {
+              null;
+            }}
+          >
+            EDIT
+          </button>
+        </>
       ) : (
         <>
           <p>really delete this color?</p>
