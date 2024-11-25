@@ -3,6 +3,7 @@ import "./DeleteButton.css";
 
 export default function DeleteButton({ onDeleteColor, colorToDelete }) {
   const [buttonVisible, setButtonVisible] = useState(false);
+  const [editButton, setEditButton] = useState(true);
 
   return (
     <div className="delete-button-container">
