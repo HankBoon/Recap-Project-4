@@ -22,12 +22,22 @@ function App() {
     ]);
   }
 
+  function handleDeleteColor(colorToRemove) {
+    setColors(colors.filter((color) => color !== colorToRemove));
+  }
+
   return (
     <>
       <h1>Theme Creator</h1>
       <ColorForm onSubmitNewColor={handleSubmitNewColor} />
       {colors.map((color) => {
-        return <Color key={color.id} color={color} />;
+        return (
+          <Color
+            key={color.id}
+            color={color}
+            onDeleteColor={handleDeleteColor}
+          />
+        );
       })}
     </>
   );
