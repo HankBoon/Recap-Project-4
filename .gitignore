@@ -22,7 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Exclude .env but include .env.example
 .env
+# Exclude .env but include .env.example
+
 !.env.example
