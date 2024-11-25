@@ -1,8 +1,8 @@
-export default function DeleteButton({ onClickDeleteButton }) {
+export default function DeleteButton({ onClickToggleStatus }) {
   return (
     <>
       {" "}
-      <button onClick={() => onClickDeleteButton()}>DELETE</button>
+      <button onClick={() => onClickToggleStatus()}>DELETE</button>
       <button onClick={() => null}>EDIT</button>
     </>
   );
