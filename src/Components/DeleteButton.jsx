@@ -1,12 +1,8 @@
 import { useState } from "react";
 import "./DeleteButton.css";
 
-export default function DeleteButton() {
+export default function DeleteButton({ onDeleteColor, colorToDelete }) {
   const [buttonStatus, setButtonStatus] = useState(false);
-
-  //   function handleDeleteColor(){
-
-  //   }
 
   return (
     <div className="delete-button-container">
@@ -18,7 +14,9 @@ export default function DeleteButton() {
           <button onClick={() => setButtonStatus(!buttonStatus)}>CANCEL</button>
           <button
             onClick={() => {
+              onDeleteColor(colorToDelete);
               setButtonStatus(!buttonStatus);
+              console.log(colorToDelete);
             }}
           >
             DELETE
