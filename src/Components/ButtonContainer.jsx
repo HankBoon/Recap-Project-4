@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./DeleteButton.css";
+import "./ButtonContainer.css";
 
-export default function DeleteButton({ onDeleteColor, colorToDelete }) {
+export default function ButtonContainer({ onDeleteColor, colorToDelete }) {
   const [buttonVisible, setButtonVisible] = useState(false);
 
   return (
