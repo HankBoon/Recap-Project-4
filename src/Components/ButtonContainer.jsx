@@ -1,13 +1,22 @@
 import { useState } from "react";
 import "./ButtonContainer.css";
 
-export default function ButtonContainer({ onDeleteColor, colorToDelete }) {
+export default function ButtonContainer({
+  onDeleteColor,
+  colorToDelete,
+  onEditColor,
+}) {
   const [buttonVisible, setButtonVisible] = useState(false);
 
   return (
     <div className="delete-button-container">
       {!buttonVisible ? (
-        <button onClick={() => setButtonVisible(!buttonVisible)}>DELETE</button>
+        <>
+          <button onClick={() => setButtonVisible(!buttonVisible)}>
+            DELETE
+          </button>
+          <button onClick={() => onEditColor()}>EDIT</button>
+        </>
       ) : (
         <>
           <p>really delete this color?</p>

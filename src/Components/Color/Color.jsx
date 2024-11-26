@@ -1,8 +1,16 @@
 import "./Color.css";
-// import DeleteButton from "../ButtonContainer";
 import ButtonContainer from "../ButtonContainer";
+import ColorForm from "../ColorForm";
+import { useState } from "react";
 
 export default function Color({ color, onDeleteColor }) {
+  const [colorFormState, setColorFormState] = useState(false);
+
+  function handleColorFormState() {
+    console.log("edit clicked!");
+    setColorFormState(!colorFormState);
+  }
+
   return (
     <>
       <div
@@ -15,7 +23,12 @@ export default function Color({ color, onDeleteColor }) {
         <h3 className="color-card-headline">{color.hex}</h3>
         <h4>{color.role}</h4>
         <p>contrast: {color.contrastText}</p>
-        <ButtonContainer onDeleteColor={onDeleteColor} colorToDelete={color} />
+        {colorFormState && <ColorForm />}
+        <ButtonContainer
+          onDeleteColor={onDeleteColor}
+          colorToDelete={color}
+          onEditColor={handleColorFormState}
+        />
       </div>
     </>
   );
