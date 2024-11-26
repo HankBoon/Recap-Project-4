@@ -55,7 +55,6 @@ function App() {
         <ColorList
           onDeleteColor={handleDeleteColor}
           colors={colors}
-          submitType={"EDIT COLOR"}
           onEditColor={handleEditColor}
         />
       )}

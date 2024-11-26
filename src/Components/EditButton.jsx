@@ -1,10 +1,10 @@
-export default function EditButton({ onClickToogle, onHandleFormState }) {
+export default function EditButton({ onToggleButton, onHandleFormVisible }) {
   return (
     <>
       <button
         onClick={() => {
-          onClickToogle();
-          onHandleFormState();
+          onToggleButton();
+          onHandleFormVisible();
         }}
       >
         EDIT

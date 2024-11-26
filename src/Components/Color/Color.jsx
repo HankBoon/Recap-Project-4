@@ -3,17 +3,12 @@ import ButtonContainer from "../ButtonContainer";
 import ColorForm from "../ColorForm";
 import { useState } from "react";
 
-export default function Color({
-  color,
-  onDeleteColor,
-  submitType,
-  onEditColor,
-}) {
-  const [colorFormState, setColorFormState] = useState(false);
+export default function Color({ color, onDeleteColor, onEditColor }) {
+  const [colorFormVisible, setColorFormVisible] = useState(false);
 
-  function handleColorFormState() {
+  function handleColorFormVisible() {
     console.log("edit clicked!");
-    setColorFormState(!colorFormState);
+    setColorFormVisible(!colorFormVisible);
   }
 
   return (
@@ -28,9 +23,9 @@ export default function Color({
         <h3 className="color-card-headline">{color.hex}</h3>
         <h4>{color.role}</h4>
         <p>contrast: {color.contrastText}</p>
-        {colorFormState && (
+        {colorFormVisible && (
           <ColorForm
-            submitType={submitType}
+            submitType={"EDIT COLOR"}
             onEditColor={onEditColor}
             color={color}
           />
@@ -38,7 +33,7 @@ export default function Color({
         <ButtonContainer
           onDeleteColor={onDeleteColor}
           colorToDelete={color}
-          onHandleFormState={handleColorFormState}
+          onHandleFormVisible={handleColorFormVisible}
         />
       </div>
     </>

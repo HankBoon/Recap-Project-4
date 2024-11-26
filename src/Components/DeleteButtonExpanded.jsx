@@ -3,14 +3,14 @@ import { useState } from "react";
 export default function DeleteButtonExpanded({
   colorToDelete,
   onDeleteColor,
-  onClickToggle,
+  onToggleButton,
 }) {
   const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
 
   return (
     <>
       <p>really delete this color?</p>
-      <button onClick={() => onClickToggle()}>CANCEL</button>
+      <button onClick={() => onToggleButton()}>CANCEL</button>
       <button
         onClick={() => {
           onDeleteColor(colorToDelete);

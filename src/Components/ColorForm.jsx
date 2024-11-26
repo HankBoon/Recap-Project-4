@@ -31,7 +31,7 @@ export default function ColorForm({
       <label htmlFor="role">Role</label>
       <input type="text" id="role" name="role" placeholder="some color" />
       <ColorInput id="hex-text-input" labelValue="Hex" />
-      <ColorInput id="contrast-text-input" labelValue="Contrast Text" />,
+      <ColorInput id="contrast-text-input" labelValue="Contrast Text" />
       <button type="submit">{submitType}</button>
     </form>
   );

@@ -7,8 +7,7 @@ export default function ButtonContainer({
   onDeleteColor,
   colorToDelete,
   onEditColor,
-  submitType,
-  onHandleFormState,
+  onHandleFormVisible,
 }) {
   const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
   const [editButtonClicked, setEditButtonClicked] = useState(false);
@@ -31,16 +30,15 @@ export default function ButtonContainer({
           <DeleteButtonExpanded
             colorToDelete={colorToDelete}
             onDeleteColor={onDeleteColor}
-            onClickToggle={handleToggleDeleteButton}
+            onToggleButton={handleToggleDeleteButton}
           />
         )}
         {/* Falsch! */}
         {!deleteButtonClicked && setDeleteButtonClicked && (
           <EditButton
             onEditColor={onEditColor}
-            onClickToogle={handleToggleEditButton}
-            submitType={submitType}
-            onHandleFormState={onHandleFormState}
+            onToggleButton={handleToggleEditButton}
+            onHandleFormVisible={onHandleFormVisible}
           />
         )}
 
