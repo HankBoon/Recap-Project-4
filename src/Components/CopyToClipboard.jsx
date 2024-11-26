@@ -3,13 +3,14 @@ import { useState } from "react";
 export default function CopyToClipboard() {
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
 
+  function handleCopyToClipboard() {
+    setCopiedToClipboard(!copiedToClipboard);
+  }
+
   return (
     <>
       {" "}
-      <button
-        className="copy-button"
-        onClick={() => setCopiedToClipboard(!copiedToClipboard)}
-      >
+      <button className="copy-button" onClick={() => handleCopyToClipboard()}>
         COPY
       </button>
       {copiedToClipboard && (
