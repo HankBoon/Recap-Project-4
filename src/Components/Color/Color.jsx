@@ -2,6 +2,7 @@ import "./Color.css";
 import ButtonContainer from "../ButtonContainer";
 import ColorForm from "../ColorForm";
 import { useState } from "react";
+import CopyToClipboard from "../CopyToClipboard";
 
 export default function Color({ color, onDeleteColor, onEditColor }) {
   const [colorFormVisible, setColorFormVisible] = useState(false);
@@ -21,6 +22,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
         }}
       >
         <h3 className="color-card-headline">{color.hex}</h3>
+        <CopyToClipboard hexCode={color.hex} />
         <h4>{color.role}</h4>
         <p>contrast: {color.contrastText}</p>
         {colorFormVisible && (

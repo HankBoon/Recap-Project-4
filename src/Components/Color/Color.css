@@ -9,3 +9,8 @@
   background: black;
   color: white;
 }
+
+.copy-button,
+.copy-button-text {
+  display: inline;
+}
