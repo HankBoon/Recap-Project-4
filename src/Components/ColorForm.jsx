@@ -16,16 +16,14 @@ export default function ColorForm({
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     // console.log(data);
-    {
-      onSubmitNewColor && onSubmitNewColor(data);
+    //  const newColorID = data.id;
+    if (onSubmitNewColor) {
+      onSubmitNewColor(data);
     }
-
-    {
-      onEditColor && onEditColor(data, color.id);
-      // data.id,
-      // data.role,
-      // data["hex-text-input"],
-      // data["contrast-text-input"]
+    if (onEditColor) {
+      const updatedColor = Object.fromEntries(formData);
+      updatedColor.id = color.id;
+      onEditColor(updatedColor);
     }
 
     event.target.reset();

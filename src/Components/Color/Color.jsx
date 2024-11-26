@@ -8,9 +8,7 @@ export default function Color({
   onDeleteColor,
   submitType,
   onhandleFormSubmitType,
-  handleEditColor,
   onEditColor,
-  key,
 }) {
   const [colorFormState, setColorFormState] = useState(false);
 
@@ -35,7 +33,6 @@ export default function Color({
           <ColorForm
             submitType={submitType}
             onEditColor={onEditColor}
-            key={key}
             color={color}
           />
         )}
