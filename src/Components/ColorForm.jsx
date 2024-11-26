@@ -9,24 +9,24 @@ export default function ColorForm({
   onSubmitNewColor,
   submitType,
   onEditColor,
+  color,
 }) {
   function handleFormSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    console.log(data);
+    // console.log(data);
     {
       onSubmitNewColor && onSubmitNewColor(data);
     }
-    // {
-    //   onEditColor &&
-    //     onEditColor(
-    //       data.id,
-    //       data.role,
-    //       data["hex-text-input"],
-    //       data["contrast-text-input"]
-    //     );
-    // }
+
+    {
+      onEditColor && onEditColor(data, color.id);
+      // data.id,
+      // data.role,
+      // data["hex-text-input"],
+      // data["contrast-text-input"]
+    }
 
     event.target.reset();
   }

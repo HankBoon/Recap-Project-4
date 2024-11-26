@@ -13,7 +13,7 @@ export default function EditButton({
     <>
       <button
         onClick={() => {
-          // onEditColor();
+          //   onEditColor();
           onClickToogle();
           onhandleFormSubmitType();
           onHandleFormState();

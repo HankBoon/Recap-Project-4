@@ -10,6 +10,7 @@ export default function Color({
   onhandleFormSubmitType,
   handleEditColor,
   onEditColor,
+  key,
 }) {
   const [colorFormState, setColorFormState] = useState(false);
 
@@ -31,7 +32,12 @@ export default function Color({
         <h4>{color.role}</h4>
         <p>contrast: {color.contrastText}</p>
         {colorFormState && (
-          <ColorForm submitType={submitType} onEditColor={onEditColor} />
+          <ColorForm
+            submitType={submitType}
+            onEditColor={onEditColor}
+            key={key}
+            color={color}
+          />
         )}
         <ButtonContainer
           onDeleteColor={onDeleteColor}
