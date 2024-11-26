@@ -7,7 +7,6 @@ export default function Color({
   color,
   onDeleteColor,
   submitType,
-  onhandleFormSubmitType,
   onEditColor,
 }) {
   const [colorFormState, setColorFormState] = useState(false);
@@ -39,7 +38,6 @@ export default function Color({
         <ButtonContainer
           onDeleteColor={onDeleteColor}
           colorToDelete={color}
-          onhandleFormSubmitType={onhandleFormSubmitType}
           onHandleFormState={handleColorFormState}
         />
       </div>

@@ -8,7 +8,6 @@ export default function ButtonContainer({
   colorToDelete,
   onEditColor,
   submitType,
-  onhandleFormSubmitType,
   onHandleFormState,
 }) {
   const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
@@ -41,7 +40,6 @@ export default function ButtonContainer({
             onEditColor={onEditColor}
             onClickToogle={handleToggleEditButton}
             submitType={submitType}
-            onhandleFormSubmitType={onhandleFormSubmitType}
             onHandleFormState={onHandleFormState}
           />
         )}

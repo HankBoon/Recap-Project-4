@@ -7,13 +7,6 @@ import { uid } from "uid";
 
 function App() {
   const [colors, setColors] = useState(initialColors);
-  const [formSubmitType, setFormSubmitType] = useState("ADD COLOR");
-
-  console.log(colors);
-
-  function handleFormSubmitType(type) {
-    setFormSubmitType(type);
-  }
 
   function handleEditColor(colorToUpdate) {
     setColors(
@@ -30,8 +23,6 @@ function App() {
         }
       })
     );
-    console.log("color handled!");
-    console.log("color to update id: ", colorToUpdate.id);
   }
 
   function handleSubmitNewColor(newColor) {
@@ -58,7 +49,6 @@ function App() {
         onSubmitNewColor={handleSubmitNewColor}
         submitType={"ADD COLOR"}
       />
-      {/* checks if array is empty and renders either p or div. Is there a better way? */}
       {colors.length === 0 ? (
         <p>No colors here...start by adding one!</p>
       ) : (
@@ -66,7 +56,6 @@ function App() {
           onDeleteColor={handleDeleteColor}
           colors={colors}
           submitType={"EDIT COLOR"}
-          onhandleFormSubmitType={handleFormSubmitType}
           onEditColor={handleEditColor}
         />
       )}

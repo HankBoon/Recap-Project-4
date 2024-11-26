@@ -1,21 +1,9 @@
-import { useState } from "react";
-
-export default function EditButton({
-  onEditColor,
-  onClickToogle,
-  submitType,
-  onhandleFormSubmitType,
-  onHandleFormState,
-}) {
-  //   const [editButtonClicked, setEditButtonClicked] = useState(false);
-
+export default function EditButton({ onClickToogle, onHandleFormState }) {
   return (
     <>
       <button
         onClick={() => {
-          //   onEditColor();
           onClickToogle();
-          onhandleFormSubmitType();
           onHandleFormState();
         }}
       >
