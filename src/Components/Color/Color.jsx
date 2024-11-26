@@ -5,11 +5,15 @@ import { useState } from "react";
 
 export default function Color({ color, onDeleteColor, onEditColor }) {
   const [colorFormVisible, setColorFormVisible] = useState(false);
-  const [copiedToClipboard, setCopyToClipboard] = useState(true);
+  const [copiedToClipboard, setCopiedToClipboard] = useState(false);
 
   function handleColorFormVisible() {
     console.log("edit clicked!");
     setColorFormVisible(!colorFormVisible);
+  }
+
+  function handleCopyButton() {
+    setCopiedToClipboard(!copiedToClipboard);
   }
 
   return (
@@ -22,7 +26,9 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
         }}
       >
         <h3 className="color-card-headline">{color.hex}</h3>
-        <button className="copy-button">COPY</button>
+        <button className="copy-button" onClick={() => handleCopyButton()}>
+          COPY
+        </button>
         {copiedToClipboard && (
           <p className="copy-button-text">Copied to clipboard!</p>
         )}
