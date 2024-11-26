@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function CopyToClipboard({ hexCode }) {
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
 
   async function handleCopyToClipboard(hexCode) {
     setCopiedToClipboard(!copiedToClipboard);
-    const response = await fetch(navigator.clipboard.writeText(hexCode));
-    console.log(response);
+    await navigator.clipboard.writeText(hexCode);
   }
+  useEffect(() => {
+    const timer = setInterval(setCopiedToClipboard, 5000);
+    console.log(timer);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [copiedToClipboard]);
 
   return (
     <>
