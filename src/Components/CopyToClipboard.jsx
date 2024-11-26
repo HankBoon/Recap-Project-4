@@ -4,15 +4,13 @@ export default function CopyToClipboard({ hexCode }) {
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
 
   async function handleCopyToClipboard(hexCode) {
-    setCopiedToClipboard(!copiedToClipboard);
+    setCopiedToClipboard(true);
     await navigator.clipboard.writeText(hexCode);
   }
   useEffect(() => {
-    const timer = setInterval(setCopiedToClipboard, 5000);
+    const timer = setTimeout(() => setCopiedToClipboard(false), 5000);
     console.log(timer);
-    return () => {
-      clearInterval(timer);
-    };
+    return () => clearTimeout(timer);
   }, [copiedToClipboard]);
 
   return (
