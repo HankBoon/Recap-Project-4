@@ -1,38 +1,37 @@
 import { useState } from "react";
 import "./ButtonContainer.css";
+import DeleteButtonExpanded from "./DeleteButtonExpanded";
+import EditButton from "./EditButton";
 
 export default function ButtonContainer({
   onDeleteColor,
   colorToDelete,
   onEditColor,
 }) {
-  const [buttonVisible, setButtonVisible] = useState(false);
+  const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
+  const [editButtonClicked, seteditButtonClicked] = useState(false);
+
+  function handleToggleDeleteButton() {
+    setDeleteButtonClicked(!deleteButtonClicked);
+  }
 
   return (
-    <div className="delete-button-container">
-      {!buttonVisible ? (
-        <>
-          <button onClick={() => setButtonVisible(!buttonVisible)}>
-            DELETE
-          </button>
-          <button onClick={() => onEditColor()}>EDIT</button>
-        </>
-      ) : (
-        <>
-          <p>really delete this color?</p>
-          <button onClick={() => setButtonVisible(!buttonVisible)}>
-            CANCEL
-          </button>
-          <button
-            onClick={() => {
-              onDeleteColor(colorToDelete);
-              setButtonVisible(!buttonVisible);
-            }}
-          >
-            DELETE
-          </button>
-        </>
-      )}
-    </div>
+    <>
+      <div className="delete-button-container">
+        {!deleteButtonClicked ? (
+          <>
+            <button onClick={() => handleToggleDeleteButton()}> DELETE</button>
+          </>
+        ) : (
+          <DeleteButtonExpanded
+            colorToDelete={colorToDelete}
+            onDeleteColor={onDeleteColor}
+            onClickToggle={handleToggleDeleteButton}
+          />
+        )}
+
+        {/* <EditButton onEditColor={onEditColor} /> */}
+      </div>
+    </>
   );
 }
