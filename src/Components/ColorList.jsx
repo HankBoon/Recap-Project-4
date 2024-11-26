@@ -5,7 +5,7 @@ export default function ColorList({
   onDeleteColor,
   submitType,
   onhandleFormSubmitType,
-  handleEditColor,
+
   onEditColor,
 }) {
   return colors.map((color) => {

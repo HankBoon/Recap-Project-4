@@ -8,25 +8,30 @@ import { uid } from "uid";
 function App() {
   const [colors, setColors] = useState(initialColors);
   const [formSubmitType, setFormSubmitType] = useState("ADD COLOR");
+
   console.log(colors);
+
   function handleFormSubmitType(type) {
     setFormSubmitType(type);
   }
 
-  function handleEditColor(colorToUpdate, key) {
+  function handleEditColor(colorToUpdate) {
     setColors(
       colors.map((color) => {
-        if (color.id === key)
+        if (color.id === colorToUpdate.id)
           return {
             ...color,
             role: colorToUpdate.role,
             hex: colorToUpdate["hex-text-input"],
             contrastText: colorToUpdate["contrast-text-input"],
           };
+        else {
+          return color;
+        }
       })
     );
     console.log("color handled!");
-    console.log(colorToUpdate);
+    console.log("color to update id: ", colorToUpdate.id);
   }
 
   function handleSubmitNewColor(newColor) {
