@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-export default function EditButton({ onEditColor }) {
-  const [editButtonClicked, seteditButtonClicked] = useState(false);
+export default function EditButton({ onEditColor, onClickToogle }) {
+  //   const [editButtonClicked, setEditButtonClicked] = useState(false);
 
   return (
     <>
       <button
         onClick={() => {
           onEditColor();
-          seteditButtonClicked(!editButtonClicked);
+          onClickToogle();
         }}
       >
         EDIT
