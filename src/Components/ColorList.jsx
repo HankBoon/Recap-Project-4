@@ -1,7 +1,23 @@
 import Color from "./Color/Color";
 
-export default function ColorList({ colors, onDeleteColor }) {
+export default function ColorList({
+  colors,
+  onDeleteColor,
+  submitType,
+  onhandleFormSubmitType,
+  handleEditColor,
+  onEditColor,
+}) {
   return colors.map((color) => {
-    return <Color key={color.id} color={color} onDeleteColor={onDeleteColor} />;
+    return (
+      <Color
+        key={color.id}
+        color={color}
+        onDeleteColor={onDeleteColor}
+        submitType={submitType}
+        onhandleFormSubmitType={onhandleFormSubmitType}
+        onEditColor={onEditColor}
+      />
+    );
   });
 }
