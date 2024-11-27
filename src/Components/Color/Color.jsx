@@ -7,6 +7,8 @@ import CopyToClipboard from "../CopyToClipboard";
 export default function Color({ color, onDeleteColor, onEditColor }) {
   const [colorFormVisible, setColorFormVisible] = useState(false);
 
+  const [contrastEvaluation, setContrastEvaluation] = useState("foo");
+
   function handleColorFormVisible() {
     setColorFormVisible(!colorFormVisible);
   }
@@ -31,6 +33,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
             color={color}
           />
         )}
+        <p>Overall Contrast Score: {contrastEvaluation}</p>
         <ButtonContainer
           onDeleteColor={onDeleteColor}
           colorToDelete={color}
