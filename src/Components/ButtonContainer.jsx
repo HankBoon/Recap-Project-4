@@ -14,15 +14,23 @@ export default function ButtonContainer({
 
   function handleToggleDeleteButton() {
     setDeleteButtonClicked(!deleteButtonClicked);
+    setEditButtonClicked(false);
   }
   function handleToggleEditButton() {
     setEditButtonClicked(!editButtonClicked);
+    setDeleteButtonClicked(false);
+  }
+
+  function handleCancelButton() {
+    setDeleteButtonClicked(false);
+    setEditButtonClicked(false);
+    onHandleFormVisible(false);
   }
 
   return (
     <>
       <div className="delete-button-container">
-        {!deleteButtonClicked && (
+        {!deleteButtonClicked && !editButtonClicked && (
           <button onClick={() => handleToggleDeleteButton()}> DELETE</button>
         )}
 
@@ -34,7 +42,7 @@ export default function ButtonContainer({
           />
         )}
         {/* Falsch! */}
-        {!deleteButtonClicked && setDeleteButtonClicked && (
+        {!deleteButtonClicked && !editButtonClicked && (
           <EditButton
             onEditColor={onEditColor}
             onToggleButton={handleToggleEditButton}
@@ -42,8 +50,8 @@ export default function ButtonContainer({
           />
         )}
 
-        {!deleteButtonClicked && !setDeleteButtonClicked && (
-          <button>CANCEL</button>
+        {!deleteButtonClicked && editButtonClicked && (
+          <button onClick={() => handleCancelButton()}>CANCEL</button>
         )}
       </div>
     </>
