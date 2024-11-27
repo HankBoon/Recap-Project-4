@@ -1,6 +1,7 @@
 import "./ColorForm.css";
 import "../index.css";
 import ColorInput from "./ColorInput";
+// import ContrastCheck from "./ContrastCheck";
 
 export default function ColorForm({
   onSubmitNewColor,
@@ -22,6 +23,7 @@ export default function ColorForm({
       updatedColor.id = color.id;
       onEditColor(updatedColor);
     }
+    // ContrastCheck(data["contrast-text-input"], data["hex-text-input"]);
 
     event.target.reset();
   }
