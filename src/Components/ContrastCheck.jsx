@@ -9,8 +9,8 @@ export default async function ContrastCheck({ hex1, hex2 }) {
       },
     }
   );
-  const dataFromResponse = response.json();
-  console.log(dataFromResponse);
+  //   const dataFromResponse = response.json();
+  console.log("log from ContrastCheck");
 }
 
 // body needs 2 color values
