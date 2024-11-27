@@ -37,7 +37,6 @@ function App() {
       },
       ...colors,
     ]);
-    console.log(colors);
   }
 
   function handleDeleteColor(colorToRemove) {

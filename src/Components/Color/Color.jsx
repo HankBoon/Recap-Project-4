@@ -8,7 +8,6 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
   const [colorFormVisible, setColorFormVisible] = useState(false);
 
   function handleColorFormVisible() {
-    console.log("edit clicked!");
     setColorFormVisible(!colorFormVisible);
   }
 
