@@ -3,11 +3,33 @@ import ButtonContainer from "../ButtonContainer";
 import ColorForm from "../ColorForm";
 import { useState } from "react";
 import CopyToClipboard from "../CopyToClipboard";
+import { useEffect } from "react";
 
 export default function Color({ color, onDeleteColor, onEditColor }) {
   const [colorFormVisible, setColorFormVisible] = useState(false);
 
   const [contrastEvaluation, setContrastEvaluation] = useState("foo");
+  console.log(contrastEvaluation);
+
+  useEffect(() => {
+    async function fetchContrastApi() {
+      const response = await fetch(
+        "https://www.aremycolorsaccessible.com/api/are-they",
+        {
+          method: "POST",
+          body: JSON.stringify({ colors: [color.hex, color.contrastText] }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const dataFromResponse = await response.json();
+      setContrastEvaluation(dataFromResponse);
+      console.log("log from ContrastCheck", dataFromResponse);
+    }
+    fetchContrastApi();
+  }, [color]);
 
   function handleColorFormVisible() {
     setColorFormVisible(!colorFormVisible);
